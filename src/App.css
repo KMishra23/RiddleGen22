@@ -28,6 +28,70 @@
   color: #61dafb;
 }
 
+.HintStyleBefore {
+  display: flex;
+  width: 339px;
+  height: 74px;
+  background: #E5E5E5;
+  border-radius: 7px;
+  justify-content: center;
+  position: relative;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.HintStyleAfter {
+  display: flex;
+  width: 339px;
+  height: 74px;
+  background: #B0DEFF;
+  border-radius: 7px;
+  justify-content: center;
+  position: relative;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.UnselectedCaptcha {
+  display: flex;
+  width: 195.18px;
+  height: 195.18px;
+  background: #D6F1FF;
+  border: 0.920659px solid #000000;
+  box-shadow: inset 0px 3.68263px 3.68263px rgba(0, 0, 0, 0.25);
+  border-radius: 2.17834px;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+}
+
+.CorrectSelectedCaptcha {
+  display: flex;
+  width: 195.18px;
+  height: 195.18px;
+  background: #DAFFD6;
+  border: 0.920659px solid #000000;
+  box-shadow: inset 0px 3.68263px 3.68263px rgba(0, 0, 0, 0.25);
+  border-radius: 2.17834px;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+}
+
+.InCorrectSelectedCaptcha {
+  display: flex;
+  width: 195.18px;
+  height: 195.18px;
+  background: #FFD6D9;
+  border: 0.920659px solid #000000;
+  box-shadow: inset 0px 3.68263px 3.68263px rgba(0, 0, 0, 0.25);
+  border-radius: 2.17834px;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+}
+
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
