@@ -1,16 +1,23 @@
-Delete node_modules folder in the main directory and inside ./backend
-Run "npm install" in the main directory and inside ./backend
-Run "npm start" in the main directory 
-Run "nodemon server" inside ./backend
+1. Delete node_modules folder in the main directory and inside ./backend
+2. Run "npm install" in the main directory and inside ./backend
+3. Run "npm start" in the main directory
+4. Run "nodemon server" inside ./backend
+
 
 MAKE SURE YOU HAVE NPM INSTALLED BEFORE THIS
 
+
 Synopsis(Please go through once)
+
 Currently the eductor dashboard displays all the riddles. Modifying them is currently not possible and selecting a few and hitting Launch Learner Dashboard always launches with the Ant concept riddle. 
+
 Click Zoology there as the other 2 have no working riddles for now.
+
 Hints are also currently not fucntional and clicking them simply gives some placeholder text. Submitting the answer tells whether if it was right or wrong on the console.
 Click Move to Captcha to move to the last page.
+
 It currently has 9 captchas that are not randomized. Select your options and click on Submit Answers twice(bug) to see your selected choices and whether if they are correct.
+
 
 Things left to add:
 1. Proper answer submission on /learner2 page
