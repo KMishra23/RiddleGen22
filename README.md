@@ -27,3 +27,9 @@ Things left to add:
 5. Make Riddles modifiable
 6. Make it so that all captchas are randomized
 7. Make Launch Learner Dashboard functional
+
+Additional information:
+1. The frontend part has few .component.js files for each web page. The other .js files are for components that have been used in the components. There might be some redundant code in these.
+2. The backend part uses a server that any IP address can access on MongoDB. Suggest to change this and add your own data before using as this might not be functional at times.
+3. Please populate the backend database before using it. The site will break otherwise.
+4. Launching the website from the educator dashboard is the only way it works right now. Directly accessing learner dashboard will result in no data being sent to these components and they wont render.
