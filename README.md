@@ -1,70 +1,29 @@
-# Getting Started with Create React App
+1. Delete node_modules folder in the main directory and inside ./backend
+2. Run "npm install" in the main directory and inside ./backend
+3. Run "npm start" in the main directory
+4. Run "nodemon server" inside ./backend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+MAKE SURE YOU HAVE NPM INSTALLED BEFORE THIS
 
-In the project directory, you can run:
 
-### `npm start`
+Synopsis(Please go through once)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Currently the eductor dashboard displays all the riddles. Modifying them is currently not possible and selecting a few and hitting Launch Learner Dashboard always launches with the Ant concept riddle. 
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Click Zoology there as the other 2 have no working riddles for now.
 
-### `npm test`
+Hints are also currently not fucntional and clicking them simply gives some placeholder text. Submitting the answer tells whether if it was right or wrong on the console.
+Click Move to Captcha to move to the last page.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+It currently has 9 captchas that are not randomized. Select your options and click on Submit Answers twice(bug) to see your selected choices and whether if they are correct.
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Things left to add:
+1. Proper answer submission on /learner2 page
+2. Proper answer submission on /learner3 page
+3. Score system for /learner3 page
+4. Hints for /learner2 page(this is an issue right now as the hints are all given in one cell of the table and there can be 0-3 hints)
+5. Make Riddles modifiable
+6. Make it so that all captchas are randomized
+7. Make Launch Learner Dashboard functional
