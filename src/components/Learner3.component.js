@@ -13,6 +13,7 @@ import { useImperativeHandle } from "react";
 import Header from "./LearnerHeader";
 import Infobar from "./Infobar";
 import FlashCard from "./FlashCard";
+import './trial.css'
 
 
 const ChildCaptcha = forwardRef((props, ref) => {
@@ -48,12 +49,26 @@ const ChildCaptcha = forwardRef((props, ref) => {
       className={captchaStyle}
       onClick={onClickEvent}
     >
-      <p style={{margin: "20px"}}>{props.captcha.Captcha_Text}</p>
+      <p style={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        textAlign: "center",
+        margin: "20px",
+      }}>{props.captcha.Captcha_Text}</p>
     </div>
   );
 })
 
 export default function Learner3(props) {
+
+  const meterElement = document.querySelector(".aBox");
+
+  function setMeter(meter, value) {
+    if(value < 0 || value > 1) return;
+
+    meter.querySelector(".theMeter").style.height = value*100+"%"
+  }
 
   function shuffle(array) {
     let currentIndex = array.length,  randomIndex;
@@ -80,6 +95,7 @@ export default function Learner3(props) {
   const location = useLocation()
   const { riddleID } = location.state
   const { answer } = location.state
+  const { hintsData } = location.state 
   const [showAns, setShowAns] = useState(false)
 
   const child0  = useRef()
@@ -116,7 +132,7 @@ export default function Learner3(props) {
     child6.current.getAlert()
     child7.current.getAlert()
     child8.current.getAlert()
-
+    setMeter(meterElement, 0.2);
   } 
 
   useEffect(() => {
@@ -135,18 +151,19 @@ export default function Learner3(props) {
         }
         setExample(res.data)
       })
+      console.log(hintsData)
     }, [])
 
   return (
     <div className="Learner3">
       <Header />
-      <Infobar img={props.selection} />
+      {/* <Infobar img={props.selection} /> */}
       {/* <Button  variant="primary" onClick={testStuff}>Test</Button> */}
       <div
         className="MainPageArea"
         style={{
           display: "flex",
-          flex: "1",
+          // flex: "1",
           justifyContent: "center",
           marginLeft: "20px",
           marginTop: "30px",
@@ -155,17 +172,27 @@ export default function Learner3(props) {
         <div
           className="LeftSideUserGuessArea"
           style={{
-            // display: "flex",
+            display: "flex",
             // flex: "1",
             flexDirection: "column",
             justifyContent: "center",
-            marginLeft: "20px",
-            marginTop: "30px",
+            alignItems: "center",
+            // marginLeft: "20px",
+            // marginTop: "30px",
             width: "300px"
           }}
         >
           <h2 className="text-center text-poppins-regular">Your Guess: {answer}</h2>
           <CaptchaFC FCSize={1} img_name="QuestionMark" />
+          <Button variant="success" onClick={submitAnswers} style={{
+            display: "flex",
+            // flex: "1",
+            justifyContent: "center",
+            alignItems: "center",
+            height: "1%",
+            width: "60%",
+            padding: "30px",
+          }}>Submit Answers</Button>
         </div>
         <div
           className="CenterCaptchaBoxes"
@@ -188,9 +215,9 @@ export default function Learner3(props) {
               marginTop: "30px",
             }}
           >
-            <ChildCaptcha captcha = {Examples[0]} showAns = {showAns} ref={child0} />
-            <ChildCaptcha captcha = {Examples[1]} showAns = {showAns} ref={child1} />
-            <ChildCaptcha captcha = {Examples[2]} showAns = {showAns} ref={child2} />
+            <ChildCaptcha captcha = {hintsData[3]} showAns = {showAns} ref={child0} />
+            <ChildCaptcha captcha = {hintsData[4]} showAns = {showAns} ref={child1} />
+            <ChildCaptcha captcha = {hintsData[5]} showAns = {showAns} ref={child2} />
             {/* <button onClick={clicky}>Clicky</button> */}
             {/* <CaptchaBox captcha = {Examples[2]} showAns = {showAns}/> */}
           </div>
@@ -204,9 +231,9 @@ export default function Learner3(props) {
               marginTop: "10px",
             }}
           >
-            <ChildCaptcha captcha = {Examples[3]} showAns = {showAns} ref={child3} />
-            <ChildCaptcha captcha = {Examples[4]} showAns = {showAns} ref={child4} />
-            <ChildCaptcha captcha = {Examples[5]} showAns = {showAns} ref={child5} />
+            <ChildCaptcha captcha = {hintsData[6]} showAns = {showAns} ref={child3} />
+            <ChildCaptcha captcha = {hintsData[7]} showAns = {showAns} ref={child4} />
+            <ChildCaptcha captcha = {hintsData[8]} showAns = {showAns} ref={child5} />
           </div>
           <div
             className="CenterCaptchaBoxes"
@@ -218,12 +245,39 @@ export default function Learner3(props) {
               marginTop: "10px",
             }}
           >
-            <ChildCaptcha captcha = {Examples[6]} showAns = {showAns} ref={child6} />
-            <ChildCaptcha captcha = {Examples[7]} showAns = {showAns} ref={child7} />
-            <ChildCaptcha captcha = {Examples[8]} showAns = {showAns} ref={child8} />
+            <ChildCaptcha captcha = {hintsData[9]} showAns = {showAns} ref={child6} />
+            <ChildCaptcha captcha = {hintsData[10]} showAns = {showAns} ref={child7} />
+            <ChildCaptcha captcha = {hintsData[11]} showAns = {showAns} ref={child8} />
           </div>
+          
         </div>
-        <Button variant="success" onClick={submitAnswers}>Submit Answers</Button>
+        <div
+          className="LeftSideUserGuessArea"
+          style={{
+            display: "flex",
+            // flex: "1",
+            flexDirection: "column",
+            justifyContent: "center",
+            alignItems: "center",
+            marginLeft: "20px",
+            marginTop: "30px",
+            width: "300px"
+          }}
+        >  
+        {/* <div className="RightMeterArea" style={{
+          display: "flex",
+          flex: "1",
+          // justifyContent: "center",
+          // alignItems: "center",
+        }}> */}
+          <h5 className="text-poppins-regular">Concept Attainment Meter</h5>
+          <div className="aBox">
+              <div className="anotherBox">
+                <div className="theMeter"></div>
+              </div>
+          </div>
+        {/* </div> */}
+        </div>
       </div>
     </div>
   );

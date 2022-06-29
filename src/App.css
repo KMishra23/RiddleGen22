@@ -38,6 +38,7 @@
   position: relative;
   align-items: center;
   margin-bottom: 20px;
+  text-align: center;
 }
 
 .HintStyleAfter {
@@ -50,6 +51,7 @@
   position: relative;
   align-items: center;
   margin-bottom: 20px;
+  text-align: center;
 }
 
 .UnselectedCaptcha {
@@ -90,7 +92,6 @@
   align-items: center;
   margin: 10px;
 }
-
 
 @keyframes App-logo-spin {
   from {

@@ -13,12 +13,32 @@ import SmallTextBox from "./SmallTextBox";
 import Button from "react-bootstrap/Button"
 
 export default function Learner2(props) { 
+  
+  function shuffle(array) {
+    let currentIndex = array.length,  randomIndex;
+  
+    // While there remain elements to shuffle.
+    while (currentIndex != 0) {
+  
+      // Pick a remaining element.
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex--;
+  
+      // And swap it with the current element.
+      [array[currentIndex], array[randomIndex]] = [
+        array[randomIndex], array[currentIndex]];
+    }
+  
+    return array;
+  }
 
+  let flag = 0;
   const location = useLocation()
   const { img } = location.state;
   const { riddleID } = location.state
 
   const[riddleData, setRiddleData] = useState([])
+  const[hintsData, setHints] = useState([0,0,0])
 
   const[answer, setAnswer] = useState("");
 
@@ -41,6 +61,7 @@ export default function Learner2(props) {
   }
 
   const testStuff = (e) => {
+    console.log(hintsData[0].Captcha_Text)
     console.log(riddleData)
   }
 
@@ -52,6 +73,7 @@ export default function Learner2(props) {
       }
     })
       .then(res => {
+        // console.log(res.data)
         for(let i = 0; i < res.data.length; i++) {
           if(res.data[i]._id == riddleID) {
             setRiddleData(res.data[i])
@@ -59,6 +81,27 @@ export default function Learner2(props) {
           // console.log(res.data[i]._id)
         }
       })
+    
+      axios.get('http://localhost:5000/riddlesCaptcha', {
+        params: {
+          Riddle_ID: riddleID
+        }
+      })
+        .then(res => {
+          // console.log(res.data)
+          if(flag == 0) {
+            setHints(res.data)
+            flag = 1
+            // for(let i = 0; i < res.data.length; i++) {
+            //   if(res.data[i].Riddle_ID == riddleID) {
+            //     hintsData.push(res.data[i])
+            //   }
+            // }
+          }
+        })
+
+      shuffle(hintsData)
+      // console.log("how")
   }, [])
   
 
@@ -135,7 +178,7 @@ export default function Learner2(props) {
                 style={{ marginTop: "20px" }}
               />
             </div>
-            <Link to = "/learner3" state={{riddleID: riddleID, answer: answer}}>
+            <Link to = "/learner3" state={{riddleID: riddleID, answer: answer, hintsData: hintsData}}>
               <Button variant="success" style={{marginTop: "10px"}}>Move to Captcha</Button>
             </Link>
           </form>
@@ -148,9 +191,9 @@ export default function Learner2(props) {
               marginLeft: "200px",
             }}
           >
-            <HintBox hintText="Hint #1" hintNum='0' />
-            <HintBox hintText="Hint #2" hintNum='1' />
-            <HintBox hintText="Hint #3" hintNum='2' />
+            <HintBox hintText="Hint #1" hint={hintsData[0].Captcha_Text} hintNum='0' />
+            <HintBox hintText="Hint #2" hint={hintsData[1].Captcha_Text} hintNum='1' />
+            <HintBox hintText="Hint #3" hint={hintsData[2].Captcha_Text} hintNum='2' />
           </div>
         </div>
       </div>

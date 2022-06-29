@@ -1,0 +1,30 @@
+.aBox {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    height: 90%;
+    width: 90%;
+    background: #000000;
+    overflow: hidden;
+}
+
+.anotherBox {
+    position: absolute;
+    height: 98.5%;
+    width: 97%;
+    background: #FFFFFF;
+    overflow: hidden;
+}
+
+.theMeter {
+    position: absolute;
+    height: 5%;
+    width: 100%;
+    background-image: linear-gradient(#fcee8e, #FFE61B);
+    /* transition: height 1s; */
+}
+
+/* .theMeter:hover {
+    height: 100%;
+} */

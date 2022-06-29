@@ -15,6 +15,10 @@ export default function Educator(props) {
 
   const [riddles, setRiddles] = useState([])
 
+  function clickModify(riddle) { 
+    
+  }
+
   useEffect(() => {
     // console.log("Change Detected")
     axios.get("http://localhost:5000/riddles")
@@ -73,7 +77,7 @@ export default function Educator(props) {
                   <td>
                     {value.Concept}
                     <br></br>
-                    <Button variant="primary" >Modify</Button>
+                    <Button variant="primary" onClick={() => clickModify(value)}>Modify</Button>
                   </td>
                 </tr>
               )

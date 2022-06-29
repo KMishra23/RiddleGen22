@@ -6,6 +6,7 @@ export default function HintBox(props) {
   const [users, setUsers] = useState([]);
   const [username, setUsername] = useState("");
   const [hintText, setHintText] = useState(props.hintText);
+  const [hint, setHint] = useState(props.hint)
 
 
   const HintStyleBeforeClick = {
@@ -37,12 +38,14 @@ export default function HintBox(props) {
 
     setButtonStyle("HintStyleAfter")
 
-    axios.get("http://localhost:5000/users").then((res) => {
-      if (res.data.length > 0) {
-        setUsers(res.data.map((user) => user.username));
-        setHintText(res.data[props.hintNum].username);
-      }
-    });
+    // axios.get("http://localhost:5000/users").then((res) => {
+    //   if (res.data.length > 0) {
+    //     setUsers(res.data.map((user) => user.username));
+    //     setHintText(res.data[props.hintNum].username);
+    //   }
+    // });
+
+    setHintText(props.hint)
   };
 
   return (

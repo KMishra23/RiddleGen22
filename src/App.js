@@ -10,6 +10,9 @@ import Learner3 from "./components/Learner3.component";
 import MainHeader from "./components/MainHeader.component";
 import WelcomePage from "./components/WelcomePage.component";
 import Educator from "./components/Educator.component";
+import bruh from "./components/bruh.component";
+
+const testing = () => <div> <h1>Text here</h1> </div>
 
 function App() {
   return (
@@ -17,11 +20,12 @@ function App() {
       <MainHeader />
       <div className="App"></div>
       <Routes>
-        <Route path="/" element={<WelcomePage />} />
+        <Route exact path="/" element={<WelcomePage />} />
         <Route path="/learner1" element={<Learner1 />} />
         <Route path="/learner2" element={<Learner2 />} />
         <Route path="/learner3" element={<Learner3 />} />
         <Route path="/educator" element={<Educator />} />
+        <Route path="/bruh" Component={testing} />
       </Routes>
     </BrowserRouter>
   );
